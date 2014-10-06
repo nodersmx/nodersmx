@@ -1,0 +1,11 @@
+{
+    "title"       : "Siedrix",
+    "description" : "This is my personnal feed!",
+    "link"        : "http://siedrix.com",
+    "copyright"   : "Copyright © 2013 Siedrix. Beerware",
+    "author": {
+        "name" : "Daniel Zavala",
+        "email": "siedrix@gmail.com",
+        "link" : "https://siedrix.com/"
+    }
+}

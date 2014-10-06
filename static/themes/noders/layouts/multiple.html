@@ -1,0 +1,28 @@
+{% extends './layout.html' %}
+
+{% block postclass %}home-template{% endblock %}
+{% block content %}
+<main id="main-content" role="main">
+    <div class="megafolio-container">
+	{% for article in articles %}
+	<article class="post mega-entry" data-width="400" data-height="400">
+		<a class="post-link" href="{{ article.uri }}">
+			<div class="bottom-fade"></div>
+			<div class="post-text-layer">
+				<header class="post-header">
+					<h2 class="post-title">{{ article.title }}</h2>
+					<div class="post-meta">
+						<time datetime="{{ article.date|date('F jS, Y') }}">{{ article.date|date('F jS, Y') }}</time>
+					</div>
+				</header>
+				<section class="post-excerpt">
+					<p>{{ article.description }}</p>
+				</section>
+			</div><!--.post-text-layer-->
+		</a><!--.post-link-->
+		<div class="post-content-digest" style="display:none"></div>
+	</article>
+	{% endfor %}
+   	</div>
+</main>
+{% endblock %}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>{% block title %}Noders{% endblock %}</title>
+		<meta name="description" content="Comunidad de desarrolladores de Node.js en México" />
+		<meta name="keywords" content="node.js, mexico, javascript" />
+		<meta name="author" content="Rog" />
+
+		<!-- This is Bullshit!: 18 lines of code and 23 files to have a favicon in all devices -->
+		<link rel="icon" type="image/x-icon" href="{{ static }}/favicons/favicon.ico" />
+		<link rel="shortcut icon" href="{{ static }}/favicons/favicon.ico">
+		<link rel="apple-touch-icon" sizes="57x57" href="{{ static }}/favicons/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="{{ static }}/favicons/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="{{ static }}/favicons/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="{{ static }}/favicons/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="{{ static }}/favicons/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="{{ static }}/favicons/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="{{ static }}/favicons/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="{{ static }}/favicons/apple-touch-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="{{ static }}/favicons/apple-touch-icon-180x180.png">
+		<link rel="icon" type="image/png" href="{{ static }}/favicons/favicon-192x192.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="{{ static }}/favicons/favicon-160x160.png" sizes="160x160">
+		<link rel="icon" type="image/png" href="{{ static }}/favicons/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="{{ static }}/favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="{{ static }}/favicons/favicon-32x32.png" sizes="32x32">
+		<meta name="msapplication-TileColor" content="#47483e">
+		<meta name="msapplication-TileImage" content="{{ static }}/favicons/mstile-144x144.png">
+
+		<link rel="stylesheet" type="text/css" href="{{ static }}/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="{{ static }}/css/component.css" />
+		<link href='http://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
+		<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		{% block head %}
+        {% endblock %}
+	</head>
+	<body>
+		<div class="container">
+			<div class="content">
+				<div id="large-header" class="large-header">
+					<canvas id="demo-canvas"></canvas>
+					<div id="noders" class="logo">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 53" enable-background="new 0 0 220 53" height="120" width="500">
+							<path class="letter_nde letter_white" stroke="#ffffff" fill="transparent" stroke-width="0" d="M30.2 28c0-.5-.3-1-.8-1.3l-12.5-7.2c-.2-.1-.4-.2-.7-.2h-.1c-.2 0-.5.1-.7.2l-12.4 7.2c-.5.3-.8.8-.8 1.3v19.3c0 .3.1.5.4.7.2.1.5.1.7 0l7.4-4.2c.5-.3.8-.8.8-1.3v-9c0-.5.3-1 .8-1.3l3.2-1.8c.2-.1.5-.2.8-.2.3 0 .5.1.7.2l3.2 1.8c.5.3.8.8.8 1.3v9c0 .5.3 1 .8 1.3l7.2 4.2c.2.1.5.1.8 0 .2-.1.4-.4.4-.7v-19.3zM96.7 1.4c-.2-.1-.5-.1-.7 0-.2.1-.4.4-.4.6v19.1c0 .2-.1.4-.3.5-.2.1-.4.1-.5 0l-3.1-1.8c-.5-.3-1-.3-1.5 0l-12.5 7.2c-.5.3-.8.8-.8 1.3v14.4c0 .5.3 1 .8 1.3l12.5 7.2c.5.3 1 .3 1.5 0l12.5-7.2c.5-.3.8-.8.8-1.3v-35.8c0-.5-.3-1-.8-1.3l-7.5-4.2zm-1.1 36.6c0 .1-.1.3-.2.3l-4.3 2.5c-.1.1-.3.1-.4 0l-4.3-2.5c-.1-.1-.2-.2-.2-.3v-4.9c0-.1.1-.3.2-.3l4.3-2.5c.1-.1.3-.1.4 0l4.3 2.5c.1.1.2.2.2.3v4.9zM141.4 33c.5-.3.7-.8.7-1.3v-3.5c0-.5-.3-1-.8-1.3l-12.3-7.2c-.5-.3-1-.3-1.5 0l-12.5 7.2c-.5.3-.8.8-.8 1.3v14.4c0 .5.3 1 .8 1.3l12.4 7.1c.5.3 1 .3 1.5 0l7.5-4.2c.2-.1.4-.4.4-.7 0-.3-.1-.5-.4-.7l-12.5-7.2c-.2-.1-.4-.4-.4-.7v-4.5c0-.3.1-.5.4-.7l3.9-2.3c.2-.1.5-.1.8 0l3.9 2.3c.2.1.4.4.4.7v3.5c0 .3.1.5.4.7.2.1.5.1.8 0l7.3-4.2z"/>
+							<path class="letter_o letter_green" stroke="#8EC74E" fill="transparent" stroke-width="0" d="M52.8 19.6c.5-.3 1-.3 1.5 0l12.5 7.2c.5.3.8.8.8 1.3v14.4c0 .5-.3 1-.8 1.3l-12.5 7.2c-.5.3-1 .3-1.5 0l-12.5-7.2c-.5-.3-.8-.8-.8-1.3v-14.4c0-.5.3-1 .8-1.3l12.5-7.2zm75.2 12.7c.1-.1.2-.1.3 0l2.4 1.4c.1.1.1.1.1.3v2.8l-.1.3-2.4 1.4c-.1.1-.2.1-.3 0l-2.4-1.4c-.1-.1-.1-.1-.1-.3v-2.8l.1-.3 2.4-1.4z"/>
+							<path class="letter_r letter_white" stroke="#ffffff" fill="transparent" stroke-width="0" d="M166.1 50.7v-21.1l14 7.3v-10.1l-14-7.8-14 7.9v16.2z"/>
+							<path class="letter_s_1 letter_white" stroke="#ffffff" fill="transparent" stroke-width="0" d="M203.5 19.8l14 8-7.1 4-6.9-4-7 4.1 7 4v8l-14-8v-8.1l14-8z"/>
+							<path class="letter_s_2 letter_green" stroke="#8EC74E" fill="transparent" stroke-width="0" d="M217.5 35.9v8l-14 8.1-14-8.1 7-4 7 4 7-4-7-4v-8.1z"/>
+						</svg>
+					</div>
+				</div>
+				<div id="javascriptmx">
+					<h3>Noders es parte de la comunidad de <a href="http://javascriptmx.com/" title="JavascriptMX" target="_blank">JavascriptMX</a></h3>
+					<p>Subscríbete a el boletín y recibe las noticias más importantes cada semana.</p>
+					<form>
+						<input type="text" id="javascriptmx" />
+						<input type="button" value="Suscribete" />
+					</form>
+				</div>
+			</div>
+		</div><!-- /container -->
+		<script src="{{ static }}/js/plugins.js"></script>
+		<script src="{{ static }}/js/noders.js"></script>
+	</body>
+</html>

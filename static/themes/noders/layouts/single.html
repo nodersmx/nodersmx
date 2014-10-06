@@ -1,0 +1,26 @@
+{% extends './layout.html' %}
+{% block title %}{{ article.title }} | rog.mx{% endblock %}
+{% block postclass %}post-template{% endblock %}
+{% block content %}
+<main id="main-content" role="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+                <article class="post">
+                    <header class="post-header">
+                    	<h1 class="post-title">{{ article.title }}</h1>
+                    	<div class="post-meta">
+                    		<time datetime=""></time>
+                    	</div>
+                    </header>
+                    <section class="post-content">
+                        {% autoescape false %}
+                        {{ article.content }}
+                        {% endautoescape %}
+                    </section>
+                </article>
+            </div><!--.col-->
+        </div><!--.row-->
+    </div>
+</main>
+{% endblock %}
