@@ -103,10 +103,10 @@
     // Event handling
     function addListeners() {
         if(!('ontouchstart' in window)) {
-            window.addEventListener('mousemove', mouseMove);
+            //window.addEventListener('mousemove', mouseMove);
         }
-        window.addEventListener('scroll', scrollCheck);
-        window.addEventListener('resize', resize);
+        //window.addEventListener('scroll', scrollCheck);
+        //window.addEventListener('resize', resize);
     }
 
     function mouseMove(e) {
@@ -119,8 +119,8 @@
             posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
             posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
         }
+        target.y = ( target.y >  window.innerHeight ) ? window.innerHeight : posy;
         target.x = posx;
-        target.y = posy;
     }
 
     function scrollCheck() {
@@ -212,7 +212,7 @@
 
     var animate_fill = function ( path, time, color ){
         path.getBoundingClientRect();
-        
+        path.style.strokeWidth = '0';
         path.style.transition = path.style.WebkitTransition = 'fill ' + time + ' ease-in-out';
         path.style.fill = color;
     };
@@ -223,12 +223,35 @@
     animate_dash( document.querySelector('#noders .letter_s_1'), '2s' );
     animate_dash( document.querySelector('#noders .letter_s_2'), '2s' );
 
-    setTimeout( function(){ animate_fill( document.querySelector('#noders .letter_nde'), '5s', '#ffffff' ); } , 2500 );
-    setTimeout( function(){ animate_fill( document.querySelector('#noders .letter_o'), '5s', '#8EC74E' ); } , 2500 );
-    setTimeout( function(){ animate_fill( document.querySelector('#noders .letter_r'), '5s', '#ffffff' ); } , 2500 );
-    setTimeout( function(){ animate_fill( document.querySelector('#noders .letter_s_1'), '5s', '#ffffff' ); } , 2500 );
-    setTimeout( function(){ animate_fill( document.querySelector('#noders .letter_s_2'), '5s', '#8EC74E' ); } , 2500 );
+    setTimeout( function(){ animate_fill( document.querySelector('#noders .letter_nde'), '0', '#ffffff' ); } , 2500 );
+    setTimeout( function(){ animate_fill( document.querySelector('#noders .letter_o'), '0', '#8EC74E' ); } , 2500 );
+    setTimeout( function(){ animate_fill( document.querySelector('#noders .letter_r'), '0', '#ffffff' ); } , 2500 );
+    setTimeout( function(){ animate_fill( document.querySelector('#noders .letter_s_1'), '0', '#ffffff' ); } , 2500 );
+    setTimeout( function(){ animate_fill( document.querySelector('#noders .letter_s_2'), '0', '#8EC74E' ); } , 2500 );
 
+    var map_style = [{"featureType":"water","stylers":[{"visibility":"on"},{"color":"#b5cbe4"}]},{"featureType":"landscape","stylers":[{"color":"#efefef"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#83a5b0"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#bdcdd3"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#e3eed3"}]},{"featureType":"administrative","stylers":[{"visibility":"on"},{"lightness":33}]},{"featureType":"road"},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":20}]},{},{"featureType":"road","stylers":[{"lightness":20}]}];
+    var map_center = new google.maps.LatLng( 19.4128709,-99.1664372 );
     
+    var map_options = {
+        zoom: 16,
+        zoomControl: true,
+        panControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        streetViewControl: false,
+        overviewMapControl: false,
+        center: map_center,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        styles: map_style
+    };
+    var map = new google.maps.Map( document.getElementById('place_map'), map_options );
+
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng( 19.41309,-99.16531 ),
+        map: map,
+        icon: '/static/img/marker_map.png',
+        flat: true
+    });
+
 
 })();

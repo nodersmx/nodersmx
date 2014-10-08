@@ -1,1 +1,1 @@
-Hola Mundo.
+console.log('Hell World');
