@@ -9,6 +9,9 @@
 		<meta name="keywords" content="node.js, mexico, javascript" />
 		<meta name="author" content="Rog" />
 
+		<link rel="stylesheet" type="text/css" href="{{ static }}/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="{{ static }}/css/component.css" />
+
 		<!-- This is Bullshit!: 18 lines of code and 23 files to have a favicon in all devices -->
 		<link rel="icon" type="image/x-icon" href="{{ static }}/favicons/favicon.ico" />
 		<link rel="shortcut icon" href="{{ static }}/favicons/favicon.ico">
@@ -29,9 +32,8 @@
 		<meta name="msapplication-TileColor" content="#47483e">
 		<meta name="msapplication-TileImage" content="{{ static }}/favicons/mstile-144x144.png">
 
-		<link rel="stylesheet" type="text/css" href="{{ static }}/css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="{{ static }}/css/component.css" />
-		<link href='http://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -41,29 +43,78 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div id="large-header" class="large-header">
-					<canvas id="demo-canvas"></canvas>
-					<div id="noders" class="logo">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 53" enable-background="new 0 0 220 53" height="120" width="500">
-							<path class="letter_nde letter_white" stroke="#ffffff" fill="transparent" stroke-width="0" d="M30.2 28c0-.5-.3-1-.8-1.3l-12.5-7.2c-.2-.1-.4-.2-.7-.2h-.1c-.2 0-.5.1-.7.2l-12.4 7.2c-.5.3-.8.8-.8 1.3v19.3c0 .3.1.5.4.7.2.1.5.1.7 0l7.4-4.2c.5-.3.8-.8.8-1.3v-9c0-.5.3-1 .8-1.3l3.2-1.8c.2-.1.5-.2.8-.2.3 0 .5.1.7.2l3.2 1.8c.5.3.8.8.8 1.3v9c0 .5.3 1 .8 1.3l7.2 4.2c.2.1.5.1.8 0 .2-.1.4-.4.4-.7v-19.3zM96.7 1.4c-.2-.1-.5-.1-.7 0-.2.1-.4.4-.4.6v19.1c0 .2-.1.4-.3.5-.2.1-.4.1-.5 0l-3.1-1.8c-.5-.3-1-.3-1.5 0l-12.5 7.2c-.5.3-.8.8-.8 1.3v14.4c0 .5.3 1 .8 1.3l12.5 7.2c.5.3 1 .3 1.5 0l12.5-7.2c.5-.3.8-.8.8-1.3v-35.8c0-.5-.3-1-.8-1.3l-7.5-4.2zm-1.1 36.6c0 .1-.1.3-.2.3l-4.3 2.5c-.1.1-.3.1-.4 0l-4.3-2.5c-.1-.1-.2-.2-.2-.3v-4.9c0-.1.1-.3.2-.3l4.3-2.5c.1-.1.3-.1.4 0l4.3 2.5c.1.1.2.2.2.3v4.9zM141.4 33c.5-.3.7-.8.7-1.3v-3.5c0-.5-.3-1-.8-1.3l-12.3-7.2c-.5-.3-1-.3-1.5 0l-12.5 7.2c-.5.3-.8.8-.8 1.3v14.4c0 .5.3 1 .8 1.3l12.4 7.1c.5.3 1 .3 1.5 0l7.5-4.2c.2-.1.4-.4.4-.7 0-.3-.1-.5-.4-.7l-12.5-7.2c-.2-.1-.4-.4-.4-.7v-4.5c0-.3.1-.5.4-.7l3.9-2.3c.2-.1.5-.1.8 0l3.9 2.3c.2.1.4.4.4.7v3.5c0 .3.1.5.4.7.2.1.5.1.8 0l7.3-4.2z"/>
-							<path class="letter_o letter_green" stroke="#8EC74E" fill="transparent" stroke-width="0" d="M52.8 19.6c.5-.3 1-.3 1.5 0l12.5 7.2c.5.3.8.8.8 1.3v14.4c0 .5-.3 1-.8 1.3l-12.5 7.2c-.5.3-1 .3-1.5 0l-12.5-7.2c-.5-.3-.8-.8-.8-1.3v-14.4c0-.5.3-1 .8-1.3l12.5-7.2zm75.2 12.7c.1-.1.2-.1.3 0l2.4 1.4c.1.1.1.1.1.3v2.8l-.1.3-2.4 1.4c-.1.1-.2.1-.3 0l-2.4-1.4c-.1-.1-.1-.1-.1-.3v-2.8l.1-.3 2.4-1.4z"/>
-							<path class="letter_r letter_white" stroke="#ffffff" fill="transparent" stroke-width="0" d="M166.1 50.7v-21.1l14 7.3v-10.1l-14-7.8-14 7.9v16.2z"/>
-							<path class="letter_s_1 letter_white" stroke="#ffffff" fill="transparent" stroke-width="0" d="M203.5 19.8l14 8-7.1 4-6.9-4-7 4.1 7 4v8l-14-8v-8.1l14-8z"/>
-							<path class="letter_s_2 letter_green" stroke="#8EC74E" fill="transparent" stroke-width="0" d="M217.5 35.9v8l-14 8.1-14-8.1 7-4 7 4 7-4-7-4v-8.1z"/>
-						</svg>
+				<div id="intro">
+					<div id="large-header" class="large-header">
+						<canvas id="demo-canvas"></canvas>
+						<div id="noders" class="logo">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 53" enable-background="new 0 0 220 53" height="120" width="500">
+								<path class="letter_nde letter_white" stroke="#ffffff" fill="transparent" stroke-width="0" d="M30.2 28c0-.5-.3-1-.8-1.3l-12.5-7.2c-.2-.1-.4-.2-.7-.2h-.1c-.2 0-.5.1-.7.2l-12.4 7.2c-.5.3-.8.8-.8 1.3v19.3c0 .3.1.5.4.7.2.1.5.1.7 0l7.4-4.2c.5-.3.8-.8.8-1.3v-9c0-.5.3-1 .8-1.3l3.2-1.8c.2-.1.5-.2.8-.2.3 0 .5.1.7.2l3.2 1.8c.5.3.8.8.8 1.3v9c0 .5.3 1 .8 1.3l7.2 4.2c.2.1.5.1.8 0 .2-.1.4-.4.4-.7v-19.3zM96.7 1.4c-.2-.1-.5-.1-.7 0-.2.1-.4.4-.4.6v19.1c0 .2-.1.4-.3.5-.2.1-.4.1-.5 0l-3.1-1.8c-.5-.3-1-.3-1.5 0l-12.5 7.2c-.5.3-.8.8-.8 1.3v14.4c0 .5.3 1 .8 1.3l12.5 7.2c.5.3 1 .3 1.5 0l12.5-7.2c.5-.3.8-.8.8-1.3v-35.8c0-.5-.3-1-.8-1.3l-7.5-4.2zm-1.1 36.6c0 .1-.1.3-.2.3l-4.3 2.5c-.1.1-.3.1-.4 0l-4.3-2.5c-.1-.1-.2-.2-.2-.3v-4.9c0-.1.1-.3.2-.3l4.3-2.5c.1-.1.3-.1.4 0l4.3 2.5c.1.1.2.2.2.3v4.9zM141.4 33c.5-.3.7-.8.7-1.3v-3.5c0-.5-.3-1-.8-1.3l-12.3-7.2c-.5-.3-1-.3-1.5 0l-12.5 7.2c-.5.3-.8.8-.8 1.3v14.4c0 .5.3 1 .8 1.3l12.4 7.1c.5.3 1 .3 1.5 0l7.5-4.2c.2-.1.4-.4.4-.7 0-.3-.1-.5-.4-.7l-12.5-7.2c-.2-.1-.4-.4-.4-.7v-4.5c0-.3.1-.5.4-.7l3.9-2.3c.2-.1.5-.1.8 0l3.9 2.3c.2.1.4.4.4.7v3.5c0 .3.1.5.4.7.2.1.5.1.8 0l7.3-4.2z"/>
+								<path class="letter_o letter_green" stroke="#8EC74E" fill="transparent" stroke-width="0" d="M52.8 19.6c.5-.3 1-.3 1.5 0l12.5 7.2c.5.3.8.8.8 1.3v14.4c0 .5-.3 1-.8 1.3l-12.5 7.2c-.5.3-1 .3-1.5 0l-12.5-7.2c-.5-.3-.8-.8-.8-1.3v-14.4c0-.5.3-1 .8-1.3l12.5-7.2zm75.2 12.7c.1-.1.2-.1.3 0l2.4 1.4c.1.1.1.1.1.3v2.8l-.1.3-2.4 1.4c-.1.1-.2.1-.3 0l-2.4-1.4c-.1-.1-.1-.1-.1-.3v-2.8l.1-.3 2.4-1.4z"/>
+								<path class="letter_r letter_white" stroke="#ffffff" fill="transparent" stroke-width="0" d="M166.1 50.7v-21.1l14 7.3v-10.1l-14-7.8-14 7.9v16.2z"/>
+								<path class="letter_s_1 letter_white" stroke="#ffffff" fill="transparent" stroke-width="0" d="M203.5 19.8l14 8-7.1 4-6.9-4-7 4.1 7 4v8l-14-8v-8.1l14-8z"/>
+								<path class="letter_s_2 letter_green" stroke="#8EC74E" fill="transparent" stroke-width="0" d="M217.5 35.9v8l-14 8.1-14-8.1 7-4 7 4 7-4-7-4v-8.1z"/>
+							</svg>
+						</div>
 					</div>
 				</div>
-				<div id="javascriptmx">
-					<h3>Noders es parte de la comunidad de <a href="http://javascriptmx.com/" title="JavascriptMX" target="_blank">JavascriptMX</a></h3>
-					<p>Subscríbete a el boletín y recibe las noticias más importantes cada semana.</p>
-					<form>
-						<input type="text" id="javascriptmx" />
-						<input type="button" value="Suscribete" />
-					</form>
+				<div id="content">
+					<div id="speakers">
+						<div class="speaker">
+							<div class="noder_avatar">
+								<div class="noder_avatar_border">
+									<img class="noder_avatar_img" src="https://pbs.twimg.com/profile_images/517088232136138753/dp6qLwgP_400x400.png" />
+								</div>
+							</div>
+							<p>@rog3r</p>
+							<p>What is node?</p>
+						</div>
+						<div class="speaker">
+							<div class="noder_avatar">
+								<div class="noder_avatar_border">
+									<img class="noder_avatar_img" src="https://pbs.twimg.com/profile_images/513570980934217728/jyFxx13I.jpeg" />
+								</div>
+							</div>
+							<p>@__arch3r</p>
+							<p>Express</p>
+						</div>
+						<div class="speaker">
+							<div class="noder_avatar">
+								<div class="noder_avatar_border">
+									<img class="noder_avatar_img" src="https://pbs.twimg.com/profile_images/459045700097937408/t5zftoEn.jpeg" />
+								</div>
+							</div>
+							<p>@gnesis</p>
+							<p>npm</p>
+						</div>
+					</div>
+					<div id="place">
+						<img src="{{ static }}/img/kmmx_logo.png" />
+						<p>San Luis Potosí 211. Piso 8. Colonia Roma.</p>
+						<div id="place_map"></div>
+					</div>
+					<div id="javascriptmx">
+						<h3>Noders es parte de la comunidad de <a href="http://javascriptmx.com/" title="JavascriptMX" target="_blank">JavascriptMX</a></h3>
+						<p>Subscríbete a el boletín y recibe las noticias más importantes cada semana.</p>
+						<form>
+							<input type="text" id="javascriptmx" />
+							<input type="button" value="Suscribete" />
+						</form>
+					</div>
+					<div id="footer">
+						<a href="http://github.com/nodersmx" target="_blank" class="footer_icon"><i class="fa fa-github"></i></a>
+						<a href="http://twitter.com/nodersmx" target="_blank" class="footer_icon"><i class="fa fa-twitter"></i></a>
+						<a href="http://facebook.com/nodersmx" target="_blank" class="footer_icon"><i class="fa fa-facebook-square"></i></a>
+					</div>
 				</div>
 			</div>
 		</div><!-- /container -->
+		<svg width="0" height="0">
+		  <mask id="mask">
+		    <path fill-rule="evenodd" clip-rule="evenodd" fill="#8EC74E" d="M76.3 3.6c2.2-1.3 5-1.3 7.3 0l60.2 34.7c2.3 1.3 3.6 3.7 3.6 6.3v69.5c0 2.6-1.4 5-3.6 6.3l-60.2 34.8c-2.3 1.3-5 1.3-7.3 0l-60.2-34.8c-2.2-1.3-3.6-3.7-3.6-6.3v-69.4c0-2.6 1.4-5 3.6-6.3l60.2-34.8z"/>
+		  </mask>
+		</svg>
 		<script src="{{ static }}/js/plugins.js"></script>
+		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		<script src="{{ static }}/js/noders.js"></script>
 	</body>
 </html>
