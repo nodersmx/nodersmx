@@ -240,6 +240,7 @@
         scaleControl: false,
         streetViewControl: false,
         overviewMapControl: false,
+        scrollwheel: false,
         center: map_center,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         styles: map_style
