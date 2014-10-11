@@ -1,4 +1,81 @@
-(function() {
+/* jshint browser: true, strict: true, undef: true */
+/* jshint camelcase: false */
+(function( window ) {
+    'use strict';
+    /*!
+    * dat_class - helper to add, remove and check class status of an element
+    */
+
+    var classReg = function ( className ) {
+        return new RegExp('(^|\\s+)' + className + '(\\s+|$)');
+    };
+
+    var hasClass, addClass, removeClass;
+
+    if ( 'classList' in document.documentElement ) {
+        hasClass = function( elem, c ) {
+            return elem.classList.contains( c );
+        };
+        addClass = function( elem, c ) {
+            elem.classList.add( c );
+        };
+        removeClass = function( elem, c ) {
+            elem.classList.remove( c );
+        };
+    } else {
+        hasClass = function( elem, c ) {
+            return classReg( c ).test( elem.className );
+        };
+        addClass = function( elem, c ) {
+            if ( !hasClass( elem, c ) ) {
+                elem.className = elem.className + ' ' + c;
+            }
+        };
+        removeClass = function( elem, c ) {
+            elem.className = elem.className.replace( classReg( c ), ' ' );
+        };
+    }
+
+    var toggleClass = function( elem, c ) {
+        var fn = hasClass( elem, c ) ? removeClass : addClass;
+        fn( elem, c );
+    };
+
+    var dat_class = {
+        hasClass: hasClass,
+        addClass: addClass,
+        removeClass: removeClass,
+        toggleClass: toggleClass,
+    };
+
+    if ( typeof define === 'function' && define.amd ) {
+        define( dat_class );
+    } else {
+        window.dat_class = dat_class;
+    }
+
+    /*!
+    * float_label - add the 'float label' animation onfocus and remove the animation onblur
+    */
+
+    var float_label = function( input ){
+        var form_input = document.querySelector( input );        
+        form_input.onfocus = function() {
+            dat_class.addClass( this.nextElementSibling, 'active' );
+        };
+        form_input.onblur = function(){
+            if( this.value === '' || this.value === 'blank'){
+                dat_class.removeClass( this.nextElementSibling, 'active' );
+            }
+        };
+    };
+
+    if ( typeof define === 'function' && define.amd ) {
+        define( float_label );
+    } else {
+        window.float_label = float_label;
+    }
+
 
     var width, height, largeHeader, canvas, ctx, points, target, animateHeader = true;
 
@@ -44,10 +121,10 @@
         height = window.innerHeight;
         target = {x: width/2, y: height/2};
 
-        largeHeader = document.getElementById('large-header');
+        largeHeader = document.getElementById('hero-noders');
         largeHeader.style.height = height+'px';
 
-        canvas = document.getElementById('demo-canvas');
+        canvas = document.getElementById('node-web');
         canvas.width = width;
         canvas.height = height;
         ctx = canvas.getContext('2d');
@@ -103,23 +180,19 @@
     // Event handling
     function addListeners() {
         if(!('ontouchstart' in window)) {
-            //window.addEventListener('mousemove', mouseMove);
+            window.addEventListener('mousemove', mouseMove);
         }
         //window.addEventListener('scroll', scrollCheck);
-        //window.addEventListener('resize', resize);
+        window.addEventListener('resize', resize);
     }
 
     function mouseMove(e) {
-        var posx = posy = 0;
-        if ( e.pageX || e.pageY ) {
-            posx = e.pageX;
-            posy = e.pageY;
-        }
-        else if ( e.clientX || e.clientY )    {
+        var posx = 0, posy = 0;
+        if ( e.clientX || e.clientY )    {
             posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-            posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+            posy = e.clientY;
         }
-        target.y = ( target.y >  window.innerHeight ) ? window.innerHeight : posy;
+        target.y = posy;
         target.x = posx;
     }
 
@@ -229,7 +302,7 @@
     setTimeout( function(){ animate_fill( document.querySelector('#noders .letter_s_1'), '0', '#ffffff' ); } , 2500 );
     setTimeout( function(){ animate_fill( document.querySelector('#noders .letter_s_2'), '0', '#8EC74E' ); } , 2500 );
 
-    var map_style = [{"featureType":"water","stylers":[{"visibility":"on"},{"color":"#b5cbe4"}]},{"featureType":"landscape","stylers":[{"color":"#efefef"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#83a5b0"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#bdcdd3"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#e3eed3"}]},{"featureType":"administrative","stylers":[{"visibility":"on"},{"lightness":33}]},{"featureType":"road"},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":20}]},{},{"featureType":"road","stylers":[{"lightness":20}]}];
+    var map_style = [{"featureType":"all","stylers":[{"saturation":-100},{"gamma":0.5}]}];
     var map_center = new google.maps.LatLng( 19.4128709,-99.1664372 );
     
     var map_options = {
@@ -254,5 +327,22 @@
         flat: true
     });
 
+    float_label('#javascriptmx_email');
 
-})();
+    var next_button = document.getElementById('hero-text');
+    next_button.addEventListener('click',
+        function ( e ) {
+            e.preventDefault();
+            var content = document.getElementById('content');
+            var step = 16;
+            var offset = 0;
+            var scroll_interval = setInterval( function() {
+                offset = ( content.offsetTop <= offset ) ? content.offsetTop : offset += step;
+                window.scrollTo( 0, offset );
+                if( offset >= content.offsetTop )
+                    clearInterval(scroll_interval);
+            } , 10);
+        },
+    false );
+
+})( window );
