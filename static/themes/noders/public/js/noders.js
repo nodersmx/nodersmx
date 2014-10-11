@@ -327,7 +327,7 @@
         flat: true
     });
 
-    float_label('#javascriptmx_email');
+    //float_label('#javascriptmx_email');
 
     var next_button = document.getElementById('hero-text');
     next_button.addEventListener('click',
