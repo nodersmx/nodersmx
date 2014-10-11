@@ -228,6 +228,7 @@ p{
 #javascriptmx .input_email{
     position: relative;
 }
+#javascriptmx input{ color: #fff;}
 #javascriptmx input[type="email"]{
 	font-size: 22px;
 	color: #fff;
