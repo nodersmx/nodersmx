@@ -211,9 +211,11 @@
 
     // animation
     function initAnimation() {
-        animate();
-        for( var i in points ) {
-            shiftPoint( points[i] );
+        if(!('ontouchstart' in window)) {
+            animate();
+            for( var i in points ) {
+                shiftPoint( points[i] );
+            }
         }
     }
 
