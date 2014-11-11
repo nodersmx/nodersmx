@@ -304,7 +304,22 @@
     setTimeout( function(){ animate_fill( document.querySelector('#noders .letter_s_1'), '0', '#ffffff' ); } , 2500 );
     setTimeout( function(){ animate_fill( document.querySelector('#noders .letter_s_2'), '0', '#8EC74E' ); } , 2500 );
 
-    var map_style = [{"featureType":"all","stylers":[{"saturation":-100},{"gamma":0.5}]}];
+    var map_style = [
+    {"featureType":"water","elementType":"geometry","stylers":[{"color":"#7fc8ed"}]},
+    {"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#f2f2f2"}]},
+    {"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#d0e3b4"}]},
+    {"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"color":"#ffffff"}]},
+    {"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#6ecbab"}]},
+    {"featureType":"poi.medical","elementType":"geometry","stylers":[{"visibility":"off"}]},
+    {"featureType":"poi.business","stylers":[{"visibility":"on"}]},
+    {"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},
+    {"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},
+    {"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffe15f"}]},
+    {"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#f3f4f4"}]},
+    {"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffe9ae"}]},
+    {"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},
+    {"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#cfb2db"}]}]
+
     var map_center = new google.maps.LatLng( 19.4128709,-99.1664372 );
     
     var map_options = {
@@ -329,7 +344,7 @@
         flat: true
     });
 
-    //float_label('#javascriptmx_email');
+    float_label('#javascriptmx_email');
 
     var next_button = document.getElementById('hero-text');
     next_button.addEventListener('click',
@@ -348,3 +363,20 @@
     false );
 
 })( window );
+
+
+$('#jsmx').ajaxChimp({
+    callback: function mailchimpCallback(resp) {
+        console.log( resp );
+        if (resp.result === 'success') {
+            $('#jsmx input, #jsmx button, #jsmx label').hide();
+            $('#subscription-msg').removeClass().addClass('success').html('Revisa tu correo y confirma la subscripción');
+        } else if(resp.result === 'error') {
+            /* $('#jsmx input, #jsmx button').hide(); */
+            $('#jsmx label').html('Tu email');
+            $('#subscription-msg').removeClass().addClass('error').html( resp.msg );
+        }
+    },
+    lang: 'es',
+    url: "//javascriptmx.us2.list-manage.com/subscribe/post?u=d7fe6986f079260108045fa95&amp;id=7e070c02cd"
+});
