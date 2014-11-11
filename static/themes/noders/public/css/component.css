@@ -273,6 +273,7 @@ p{
 	font-weight: 400;
 	transition: color 0.3s, top 0.3s;
 	font-family: 'Source Sans Pro';
+	cursor: text;
 }
 
 #javascriptmx label.active{
