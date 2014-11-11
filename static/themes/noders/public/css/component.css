@@ -57,7 +57,7 @@ p{
 .logo{
 	position: absolute;
 	z-index: 1;
-	top: 23%;
+	top: 18%;
 	left: 50%;
 	margin-left: -250px;
 }
@@ -67,16 +67,11 @@ p{
 	top: 43%;
 }
 #hero-text{
-	margin: 40px 0 0 0;
+	margin: 95px 0 0 0;
 	cursor: pointer;
 	text-align: center;
 }
-#hero-text p{
-	display: inline-block;
-	font-size: 34px;
-	font-family: 'Exo 2';
-	margin: 10px 0;
-}
+
 #hero-text span{
 	display: block;
 	background: url('../img/noders_flechas.png') no-repeat  0 -2px;
@@ -84,11 +79,33 @@ p{
 	width: 40px;
 	height: 17px;
 }
-#hero-text:hover p{
-	border-bottom: 1px solid #90c640;
-}
+
 #hero-text:hover span{
 	background-position: 0 -30px;
+}
+
+#ticket_to_go{
+	margin: 40px 0 0 0;
+	text-align: center;
+	font-size: 30px;
+}
+#ticket_to_go p{
+	margin: 0 0 15px 0;
+	text-transform: uppercase;
+	display: block;
+	font-size: 32px;
+	font-family: 'Exo 2';
+}
+#ticket_to_go a{
+	color: #fff;
+	background: #90c640;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	margin: 0;
+}
+#ticket_to_go a:hover{
+	background: rgba(155, 215, 64, 0.56);
+	text-decoration: none;
 }
 
 /**** DESCRIPTION ******/
