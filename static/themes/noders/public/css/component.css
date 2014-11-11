@@ -13,19 +13,18 @@ body{
 }
 
 h1{
-	font-size: 48px;
+	font-size: 40px;
 	text-align: center;
-	text-transform: uppercase;
 	font-weight: 500;
 	font-family: 'Exo 2';
 	color: #90c640;
 }
 
-h2{
-	font-size: 36px;
+#slogan h1, h2{
+	font-size: 24px;
 	text-align: center;
 	font-weight: 500;
-	font-family: 'Source Sans Pro';
+	font-family: 'Exo 2';
 	color: #fff;	
 }
 
@@ -34,7 +33,7 @@ h3{
 	text-align: center;
 	font-weight: 500;
 	font-family: 'Exo 2';
-	color: #90c640;	
+	color: #90c640;
 }
 
 
@@ -58,12 +57,17 @@ p{
 .logo{
 	position: absolute;
 	z-index: 1;
-	top: 32%;
+	top: 23%;
 	left: 50%;
 	margin-left: -250px;
 }
+#slogan{
+	position: absolute;
+	z-index: 1;
+	top: 43%;
+}
 #hero-text{
-	margin: 25px 0 0 0;
+	margin: 40px 0 0 0;
 	cursor: pointer;
 	text-align: center;
 }
@@ -89,17 +93,18 @@ p{
 
 /**** DESCRIPTION ******/
 #description{
-	margin: 50px 0;
 }
 
 
 /**** SPEAKERS ******/
 #speakers{
-	margin: 50px 0;	
+	margin: 0 0 60px 0;	
 	overflow: auto;
 }
-#speakers h3{
+#speakers h3 span{
+	display: inline-block;
 	text-transform: uppercase;
+	
 }
 .speaker{
 	text-align: center;
@@ -148,13 +153,20 @@ p{
 	mask: url(#mask);
 	-webkit-mask: url(../img/noders_logo.svg) top left / cover;
 }
+#talk h3 {
+	color: #90c640;
+}
+#talk h3 span{
+	font-size: 42px;
+	color: #fff;
+}
 #talk p{
 	font-size: 24px;
 	text-align: center;
 }
 /**** LUGAR ******/
 #place{
-	margin: 50px 0;
+	margin: 80px 0;
 }
 #place h3{
 	margin: 0; padding: 0;
@@ -200,25 +212,29 @@ p{
 
 /**** JAVASCRIPTMX ******/
 #javascriptmx{
-	background: #FFFD48;
+	background: rgba(189, 255, 91, 0.61);
 	margin: 20px 0;
 	padding: 20px 0;
 }
 
 #javascriptmx h3{
-	color: #000;
+	color: #fff;
 	margin: 0; padding: 10px 0;
 }
 
 #javascriptmx a{
-	color: #000;
-	border-bottom: 1px dotted #fff;
+	color: #fff;
+	border-bottom: 2px dotted #fff;
 	text-decoration: none;
+}
+#javascriptmx a:hover{
+	color: #ff0;
+	border-bottom: 2px dotted #ff0;
 }
 
 #javascriptmx p{
-	color: #000;
-	font-size: 24px;
+	color: #fff;
+	font-size: 22px;
 	margin: 0; padding: 0;
 	text-align: center;
 }
@@ -231,46 +247,67 @@ p{
     position: relative;
 
 }
-#javascriptmx input{ color: #fff;}
+#javascriptmx input{ color: #fff; outline: none;}
 #javascriptmx input[type="email"]{
+	font-family: 'Exo 2';
 	font-size: 22px;
-	color: #000;
+	color: #fff;
 	background-color: transparent;
 	border: none;
-	border: 2px solid #000;
+	border: 2px solid #333;
 	outline: 0;
 	padding: 12px;
 	margin-bottom: 18px;
 	outline: none;
 	transition: all 0.3s;
+	margin: 0 -90px 0 0;
 }
 #javascriptmx label {
-	position: absolute;
-	left: 0;
-	top: 12px;
-	color: #fff;
+	position: relative;
+	top: -2px;
+	left: -190px;
+	color: #333;
 	font-size: 20px;
 	display: inline-block;
 	padding: 4px 10px;
 	font-weight: 400;
 	transition: color 0.3s, top 0.3s;
+	font-family: 'Source Sans Pro';
 }
 
 #javascriptmx label.active{
-	top: -15px;
-	background-color: #f0db4f;
+	background-color: #80a944;
+	top: -35px;
+	left: -190px;
 }
 
-#javascriptmx input[type="button"]{
-	border: 2px solid #000;
+#javascriptmx button{
+	border: 2px solid #333;
 	padding: 12px;
 	font-size: 22px;
 	background-color: transparent;
-	color: #000;
+	color: #333;
 }
-#javascriptmx input[type="button"]:hover{
-	background-color: #000;
-	color: #FFFD68;
+#javascriptmx button:hover{
+	background-color: #333;
+	color: #80a944;
+}
+
+#subscription-msg{
+}
+#subscription-msg.success{
+	color: #333;
+	margin: 0;
+	font-size: 22px;
+}
+#subscription-msg.error{
+	color: #F3F756;
+	margin: 25px 0 0 0;
+	font-size: 18px;
+}
+#subscription-msg.error a{
+	color: #333;
+	border-color: #333;
 }
 
 /**** FOOTER ******/
@@ -293,7 +330,7 @@ p{
 	width: 50%;
 	color: #fff;
 	top: 25%;
-	left: 28%;
+	left: 26%;
 	font-size: 30px;
 }
 
