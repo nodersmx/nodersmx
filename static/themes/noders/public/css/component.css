@@ -207,6 +207,9 @@ p{
 #meetup a{
 	color: #90c640;
 }
+#meetup a:hover img{
+	opacity: 0.8;
+}
 #meetup .mu-widget{
 	display: inline-block;
 	clear: both;
