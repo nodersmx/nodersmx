@@ -1,7 +1,7 @@
 {
-    "title"       : "Siedrix",
-    "description" : "This is my personnal feed!",
-    "link"        : "http://siedrix.com",
+    "title"       : "Noders",
+    "description" : "This the feed to Noders!",
+    "link"        : "http://noders.mx",
     "copyright"   : "Copyright © 2013 Siedrix. Beerware",
     "author": {
         "name" : "Daniel Zavala",
